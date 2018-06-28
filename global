@@ -1,0 +1,57 @@
+conky.config = {
+
+-- Window options
+	double_buffer = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = false,
+  own_window_colour = '2a2f3d',
+	own_window_argb_visual = false,
+	total_run_times = 0,
+
+-- Borders
+	draw_borders = false,
+  draw_shades = false,
+
+-- Position
+	gap_y = -525,
+	gap_x = 0,
+
+-- Alignment
+	alignment = 'middle_left',
+
+-- Interval (update freq per second)
+	update_interval = 1,
+
+--Colors
+	default_color = '#2A2F3D',
+  color1 = '#3397DC',   --graphs and logo
+  color2 = '#404552',   --dark text
+	color3 = '#FFFFFF',   --light text
+	color4 = '#3397DC',   --border lines
+-- Font
+	use_xft = true,
+	font = 'Source Code Pro:pixelsize=16',
+  draw_outline = false,
+
+-- to prevent window from moving
+	minimum_width = 1914,
+  use_spacer = 'left',
+  pad_percents = 3,
+};
+conky.text = [[
+${color1}${font OpenLogos:size=20}u ${font}${voffset -9}\
+${color2}Time:${color3}${time %e %B %Y %I:%M:%S %p} ${color4}| \
+${color2}CPU1:${color1}${voffset 2}${cpugraph cpu1 20,50}${color2}${voffset -2}${color3}${cpu cpu1}% ${color4}| \
+${color2}CPU2:${color1}${voffset 2}${cpugraph cpu2 20,50}${color2}${voffset -2}${color3}${cpu cpu2}% ${color4}| \
+${color2}CPU3:${color1}${voffset 2}${cpugraph cpu3 20,50}${color2}${voffset -2}${color3}${cpu cpu3}% ${color4}| \
+${color2}CPU4:${color1}${voffset 2}${cpugraph cpu4 20,50}${color2}${voffset -2}${color3}${cpu cpu4}% ${color4}| \
+${color3}${freq_g} GHz ${color4}| \
+${color2}RAM:${color3}${memperc}% ${color4}| \
+${color2}Free Space:${color3}${fs_free_perc /root}% ${color4}| \
+${color2}wlp3s0:\
+${color3}DOWN ${color4}${voffset 1}${downspeedgraph wlp3s0 16,25}${voffset -1}\
+${color3} UP ${color4}${voffset 1}${upspeedgraph wlp3s0 16,25}${voffset -1} ${color4}| \
+${color2}Battery:${color4}${voffset 3}${battery_bar 16,30 BAT0} ${battery_time}${voffset -3} ${color4}\
+
+]];
